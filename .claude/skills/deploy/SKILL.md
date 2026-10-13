@@ -15,4 +15,4 @@ Steps:
 3. If the dry run looks as expected (no surprise deletions), run `scripts/deploy.sh`.
 4. Verify: `curl -s "https://traumatherapie-neuss.de/?nocache=$RANDOM" | diff -q - index.html` should report no difference. The cache-buster is needed because one.com serves pages through a Varnish cache, so plain requests can show the old version for a while after a deploy. Report the result.
 
-If `.env` is missing, ask the user for the SSH password and recreate it with `DEPLOY_HOST=ssh.cn8z99t2h.service.one`, `DEPLOY_USER=cn8z99t2h_ssh`, `DEPLOY_PASSWORD=...`, `DEPLOY_PATH=webroots/www/`.
+If `.env` is missing, copy `.env.example` to `.env` and ask the user for the SSH host, user and password (one.com control panel, SSH/SFTP section).
