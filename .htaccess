@@ -1,0 +1,7 @@
+# one.com serves the site through a Varnish cache. Mark HTML as no-cache so
+# Varnish and browsers always revalidate the page and a deploy shows up right
+# away. Images and CSS are still cached normally.
+# https://help.one.com/hc/en-us/articles/115005586269-How-can-I-disable-the-Varnish-cache
+<FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+</FilesMatch>

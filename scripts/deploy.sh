@@ -14,6 +14,6 @@ export SSHPASS="$DEPLOY_PASSWORD"
 
 rsync -rlptvz --delete --itemize-changes ${1:+"$1"} \
     --exclude '.git/' --exclude '.gitignore' --exclude '.env' \
-    --exclude '.claude/' --exclude 'scripts/' --exclude '*.md' \
+    --exclude '.claude/' --exclude '.playwright-mcp/' --exclude 'scripts/' --exclude '*.md' \
     -e "sshpass -e ssh -o PubkeyAuthentication=no" \
     ./ "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH"
